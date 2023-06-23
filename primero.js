@@ -64,12 +64,19 @@ const connect = async () =>
 
 ///----------------------DIA 3 -------------------------\\
 
-//--------------RETO 1------------------
+//--------------RETO 1------------------>
 
-const sql = 'SELECT first_name, last_name, title FROM ((students INNER JOIN subjects ON students.group_id = subject_teachers.group_id) INNER JOIN subjects ON subject_teachers.subject_id = subjects.subject_id);'
+// const sql = 'SELECT first_name, last_name, title FROM students INNER JOIN grupos ON students.group_id = grupos.grupo_id INNER JOIN subject_teachers ON grupos.grupo_id = subject_teachers.group_id INNER JOIN subjects ON subject_teachers.subject_id = subjects.subject_id;'
 
 
+//-----------------RETO 2 ------------------->
 
+// const sql = 'SELECT first_name, last_name, title FROM teachers INNER JOIN subject_teachers ON teachers.teacher_id = subject_teachers.teacher_id INNER JOIN subjects ON subject_teachers.subject_id = subjects.subject_id;'
+
+
+//-----------------RETO 3 ------------------->
+
+const sql = 'SELECT subjects.title, teachers.first_name, teachers.last_name, COUNT (*) as alumnos FROM subjects INNER JOIN subject_teachers ON subjects.subject_id = subject_teachers.subject_id INNER JOIN teachers ON teachers.teacher_id = subject_teachers.teacher_id INNER JOIN grupos ON subject_teachers.group_id = grupos.grupo_id INNER JOIN students ON grupos.grupo_id = students.group_id GROUP BY subjects.title, teachers.first_name, teachers.last_name;'
 
 
 
