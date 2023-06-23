@@ -66,7 +66,7 @@ const connect = async () =>
 
 //--------------RETO 1------------------
 
-const sql = 'SELECT first_name, last_name, title FROM ((students INNER JOIN subjects ON students.group_id = subject_teachers.group_id) INNER JOIN subjects ON subject_teachers.subject_id = subjects.subject_id) ORDER BY first_name DESC;'
+const sql = 'SELECT first_name, last_name, title FROM ((students INNER JOIN subjects ON students.group_id = subject_teachers.group_id) INNER JOIN subjects ON subject_teachers.subject_id = subjects.subject_id);'
 
 
 
